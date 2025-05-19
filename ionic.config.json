@@ -1,0 +1,7 @@
+{
+  "name": "portalValidacion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
