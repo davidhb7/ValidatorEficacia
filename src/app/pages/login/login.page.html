@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <form action="" [formGroup]="formGroupLogin" (ngSubmit)="validarUsuario()">
+        <ion-item>
+          <ion-input 
+          label="Digite la cedula" 
+          label-placement="floating" 
+          fill="solid" 
+          placeholder="Cedula de ciudadania" 
+          formControlName="cedula" 
+          [(ngModel)]="usuario.cedula"></ion-input>
+      </ion-item>
+      <ion-text color="danger"
+        *ngIf="formGroupLogin.get('cedula')?.invalid && formGroupLogin.get('cedula')?.touched">
+        <p *ngIf="formGroupLogin.get('cedula')?.errors?.['required']"
+          style="margin: 10px;">Cedula es requerida.</p>
+        <p *ngIf="formGroupLogin.get('cedula')?.errors?.['minlength']"
+          style="margin: 10px;">La Cedula debe tener al menos 6 caracteres.</p>
+        <p *ngIf="formGroupLogin.get('cedula')?.errors?.['maxLength']"
+          style="margin: 10px;">La Cedula debe tener maximo 10 caracteres.</p>
+      </ion-text>
+      
+      <ion-button type="submit" [disabled]="formGroupLogin.invalid" id="present-alert">Validar</ion-button>
+    
+      
+      </form>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <app-vista-usuario></app-vista-usuario>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,34 @@
+<h1>USUARIO VISTA PRUEBA: </h1>
+
+<div>
+  <ion-item>
+    Cedula: {{userDt.cedula}}
+  </ion-item>
+  <ion-item>
+    Nombre: {{userDt.nombre}}
+  </ion-item>
+  <ion-item>
+    Nombre: {{userDt.ciudad}}
+  </ion-item>
+  <ion-item>
+    Nombre: {{userDt.telefono}}
+  </ion-item>
+</div>
+<br>
+<hr>
+
+<h1>USUARIO DE API: </h1>
+<div *ngFor="let us of usuarioApi">
+  <ion-item>
+    Cedula: {{us.cedula}}
+  </ion-item>
+  <ion-item>
+    Nombre: {{us.nombre}}
+  </ion-item>
+  <ion-item>
+    Nombre: {{us.ciudad}}
+  </ion-item>
+  <ion-item>
+    Nombre: {{us.telefono}}
+  </ion-item>
+</div>

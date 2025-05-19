@@ -1,0 +1,97 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <form action="" [formGroup]="formGroupRegistro" (ngSubmit)="guardarRegistro()">
+
+        <!-- CEDULA -->
+        <ion-item>
+          <ion-input 
+          label="Digite la cedula" 
+          label-placement="floating" 
+          fill="solid" 
+          placeholder="Cedula de ciudadania" 
+          formControlName="cedula" 
+          [(ngModel)]="usuario.cedula"></ion-input>
+      </ion-item>
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('cedula')?.invalid && formGroupRegistro.get('cedula')?.touched">
+        <p *ngIf="formGroupRegistro.get('cedula')?.errors?.['required']"
+          style="margin: 10px;">Cedula es requerida.</p>
+        <p *ngIf="formGroupRegistro.get('cedula')?.errors?.['minlength']"
+          style="margin: 10px;">La Cedula debe tener al menos 6 caracteres.</p>
+        <p *ngIf="formGroupRegistro.get('cedula')?.errors?.['maxLength']"
+          style="margin: 10px;">La Cedula debe tener maximo 10 caracteres.</p>
+      </ion-text>
+
+      <!-- TELEFONO -->
+       <ion-item>
+          <ion-input 
+          label="Digite el número telefonico" 
+          label-placement="floating" 
+          fill="solid" 
+          placeholder="Número telefonico" 
+          formControlName="telefono" 
+          [(ngModel)]="usuario.telefono"></ion-input>
+      </ion-item>
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('telefono')?.invalid && formGroupRegistro.get('telefono')?.touched">
+        <p *ngIf="formGroupRegistro.get('telefono')?.errors?.['required']"
+          style="margin: 10px;">Telefono es requerido.</p>
+        <p *ngIf="formGroupRegistro.get('telefono')?.errors?.['minlength']"
+          style="margin: 10px;">El telefono debe tener al menos 10 caracteres.</p>
+        <p *ngIf="formGroupRegistro.get('telefono')?.errors?.['maxLength']"
+          style="margin: 10px;">El telefono debe tener maximo 10 caracteres.</p>
+      </ion-text>
+
+      <!-- NOMBRE -->
+       <ion-item>
+          <ion-input 
+          label="Digite nombre completo" 
+          label-placement="floating" 
+          fill="solid" 
+          placeholder="nombre" 
+          formControlName="nombre" 
+          [(ngModel)]="usuario.nombre"></ion-input>
+      </ion-item>
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('nombre')?.invalid && formGroupRegistro.get('nombre')?.touched">
+        <p *ngIf="formGroupRegistro.get('nombre')?.errors?.['required']"
+          style="margin: 10px;">Nombre es requerido.</p>
+      </ion-text>
+       
+
+
+
+
+      <!-- CIUDAD -->
+       <ion-item>
+          <ion-input 
+          label="Digite ciudad de residencia" 
+          label-placement="floating" 
+          fill="solid" 
+          placeholder="Ciudad" 
+          formControlName="ciudad" 
+          [(ngModel)]="usuario.ciudad"></ion-input>
+      </ion-item>
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('ciudad')?.invalid && formGroupRegistro.get('ciudad')?.touched">
+        <p *ngIf="formGroupRegistro.get('ciudad')?.errors?.['required']"
+          style="margin: 10px;">Ciudad es requerida.</p>
+      </ion-text>
+
+      
+      <ion-button type="submit" [disabled]="formGroupRegistro.invalid" id="present-alert">Continuar</ion-button>
+      </form>
+
+      
+
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
