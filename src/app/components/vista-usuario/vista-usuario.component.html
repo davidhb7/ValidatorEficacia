@@ -1,4 +1,4 @@
-<h1>USUARIO VISTA PRUEBA: </h1>
+<!-- <h1>USUARIO VISTA PRUEBA: </h1>
 
 <div>
   <ion-item>
@@ -15,20 +15,22 @@
   </ion-item>
 </div>
 <br>
-<hr>
+<hr> -->
 
 <h1>USUARIO DE API: </h1>
-<div *ngFor="let us of usuarioApi">
-  <ion-item>
-    Cedula: {{us.cedula}}
-  </ion-item>
-  <ion-item>
-    Nombre: {{us.nombre}}
-  </ion-item>
-  <ion-item>
-    Nombre: {{us.ciudad}}
-  </ion-item>
-  <ion-item>
-    Nombre: {{us.telefono}}
-  </ion-item>
+<div > <div *ngIf="usuario; else noUser">
+    <h2>{{ usuario.nombre }}</h2>
+    <p><strong>Cédula:</strong> {{ usuario.cedula }}</p>
+    <p><strong>Ciudad:</strong> {{ usuario.ciudad }}</p>
+    <p><strong>Fecha Creación:</strong> {{ usuario.created | date:'medium' }}</p>
+    <img *ngIf="usuario.foto" [src]="usuario.foto" alt="Foto usuario" />
+  </div>
+
+  <ng-template #noUser>
+    <p *ngIf="errorMnjs; else loading">{{ errorMnjs }}</p>
+  </ng-template>
+
+  <ng-template #loading>
+    <p>Cargando datos...</p>
+  </ng-template>
 </div>
