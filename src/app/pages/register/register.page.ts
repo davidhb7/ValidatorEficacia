@@ -78,9 +78,7 @@ export class RegisterPage implements OnInit {
       console.warn('El campo de otra ciudad no está disponible aún o está vacío');
       return;
     }
-
     const ciudadFinal = ciudadSeleccionada === 'Otra' ? otraCiudad : ciudadSeleccionada;
-
     const datosAEnviar = {
       cedula: datosFormulario.cedula,
       nombre: datosFormulario.nombre,
@@ -96,7 +94,6 @@ export class RegisterPage implements OnInit {
       created: "",
       otraCiudad: ciudadFinal
     };
-
     console.log('Datos finales:', datosAEnviar);
     this.userServ.registrarUsuario(this.usuario).subscribe({
       next: (respuesta) => {
@@ -124,17 +121,8 @@ export class RegisterPage implements OnInit {
   }
 
 
-  // //CONSUMO DE SERVICIO SUBIR FOTOS AL STORAGE MIENTRAS SE CREA EL REPORTE
-  // async subirFotoCrearReporte(event:any){
-  //   const nombreRutaCarpetaStorage=this.usuario.cedula;
-  //   const nombreFotoEnStorage="fotoUsuario"+this.usuario.cedula;
-  //   const archivo= event.target.files[0];
-  //   //res = link de la foto
-  //   const res = await this.fotoServ.cargarFotoFireStorage(archivo, nombreRutaCarpetaStorage, nombreFotoEnStorage );
-  //   this.usuario.foto=res;
-  //   console.log("link:",res)
-  // }
-  async subirFotoCrearReporte(event: any) {
+ 
+  async subirFoto(event: any) {
     const loading = await this.loadingCtrl.create({
       message: 'Subiendo foto...',
       spinner: 'crescent',

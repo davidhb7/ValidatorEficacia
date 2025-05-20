@@ -6,5 +6,4 @@ export interface UserI{
     ciudad: string;
     created:string;
     otraCiudad:string
-    
 }
