@@ -1,23 +1,7 @@
-<!-- <h1>USUARIO VISTA PRUEBA: </h1>
 
-<div>
-  <ion-item>
-    Cedula: {{userDt.cedula}}
-  </ion-item>
-  <ion-item>
-    Nombre: {{userDt.nombre}}
-  </ion-item>
-  <ion-item>
-    Nombre: {{userDt.ciudad}}
-  </ion-item>
-  <ion-item>
-    Nombre: {{userDt.telefono}}
-  </ion-item>
-</div>
-<br>
-<hr> -->
 
 <h1>USUARIO DE API: </h1>
+<h2>Cedula buscar: {{cedulaConsulta}}</h2>
 <div > <div *ngIf="usuario; else noUser">
     <h2>{{ usuario.nombre }}</h2>
     <p><strong>Cédula:</strong> {{ usuario.cedula }}</p>

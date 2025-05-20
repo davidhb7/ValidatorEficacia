@@ -1,8 +1,11 @@
 {
   "/api": {
-    "target": "https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/assesmentDEV",
-    "secure": true,
+    "target": "https://botai.smartdataautomation.com",
+    "secure": false,
     "changeOrigin": true,
-    "logLevel": "debug"
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": "/api_backend_ai/dinamic-db/report/119/assesmentDEV"
+    }
   }
 }
