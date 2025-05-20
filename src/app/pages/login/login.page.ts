@@ -55,10 +55,11 @@ export class LoginPage implements OnInit {
         this.consultaRealizada = true;
 
         if (res.status === 'ok' && res.result.length > 0) {
+          alert('Usuario encontrado. Puedes continuar con el proceso.');
           this.usuario = res.result[0];
           this.errorMnjs = '';
         } else {
-          alert('Usuario no registrado. Serás redirigido al registro.');
+          alert('No estás registrado.”');
           this.router.navigate(['/register'], {
             queryParams: { cedula: this.cedulaBuscar }
           });

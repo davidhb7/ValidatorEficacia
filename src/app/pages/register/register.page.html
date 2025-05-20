@@ -65,13 +65,27 @@
         </ion-item>
 
         <ion-item *ngIf="formGroupRegistro.get('ciudad')?.value === 'Otra'">
-          <ion-input
-            formControlName="otraCiudad"
-            label="Otra ciudad"
-            placeholder="Escribe el nombre de la ciudad">
+          <ion-input formControlName="otraCiudad" label="Otra ciudad" placeholder="Escribe el nombre de la ciudad">
           </ion-input>
         </ion-item>
-       
+
+
+        <!-- FOTO -->
+        <ion-item>
+          <ion-label>Subir Fotos de galeria:</ion-label>
+          <ion-buttons slot="end">
+            <label for="carga-archivo">
+              <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+            </label>
+            <!-- ABRIR EXPLORADOR DE ARCHIVOS/GALERIA PARA CARGAR LAS FOTOS -->
+            <input type="file" accept="image/*" style="display: none;" id="carga-archivo"
+              (change)="subirFotoCrearReporte($event)">
+          </ion-buttons>
+          <br><br>
+          <img src="{{usuario.foto}}" alt="">
+        </ion-item>
+        
+
 
 
 
