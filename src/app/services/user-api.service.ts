@@ -10,33 +10,53 @@ import { environment } from 'src/environments/environment';
 })
 export class UserApiService {
 
-  apiDirecta:string="https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/assesmentDEV"
-  apiEnv=environment.apiEficacia
+  apiDirecta: string = "https://proxy-server-2f6b.onrender.com"
+  apiEnv = environment.apiEficacia
 
 
   constructor(
-    private httpC:HttpClient
+    private httpC: HttpClient
   ) { }
 
-  getUserByCedula(cc:string): Observable<any> {
+  getUserByCedula(cc: string): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Token 790cfdfb568c8ca697c72f52d8fab5af63ede025`,
     });
-    const params = new HttpParams()
-      // .set('_id', '682bbd13430509c3db24287b')
-      .set('cedula', cc);
-      const apidir=environment.apiEficacia
-    return this.httpC.get(apidir, { headers,params });
+    const params = new HttpParams().set('cedula', cc);
+
+    const apidir = `${this.apiDirecta}/proxy`;
+    console.log('URL llamada:', apidir, params.toString());
+
+    return this.httpC.get(apidir, { headers, params });
   }
 
-
-  registrarUsuario(usr:UserI){
+  registrarUsuario(usr: UserI) {
     const headers = new HttpHeaders({
       'Authorization': `Token 790cfdfb568c8ca697c72f52d8fab5af63ede025`,
     });
-    const apidir=environment.apiEficacia
-    return this.httpC.post(apidir,usr,{headers})
+    return this.httpC.post(`${this.apiDirecta}/proxy`, usr, { headers });
   }
+
+
+  // getUserByCedula(cc:string): Observable<any> {
+  //   const headers = new HttpHeaders({
+  //     'Authorization': `Token 790cfdfb568c8ca697c72f52d8fab5af63ede025`,
+  //   });
+  //   const params = new HttpParams()
+  //     // .set('_id', '682bbd13430509c3db24287b')
+  //     .set('cedula', cc);
+  //     const apidir=this.apiDirecta
+  //   return this.httpC.get(apidir, { headers,params });
+  // }
+
+
+  // registrarUsuario(usr:UserI){
+  //   const headers = new HttpHeaders({
+  //     'Authorization': `Token 790cfdfb568c8ca697c72f52d8fab5af63ede025`,
+  //   });
+  //   const apidir=this.apiDirecta
+  //   return this.httpC.post(apidir,usr,{headers})
+  // }
 
 
 }
