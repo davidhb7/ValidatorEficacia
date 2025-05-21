@@ -2,6 +2,10 @@
   "name": "portalValidacion",
   "type": "angular",
   "proxies":[
+    {
+      "path": "/api",
+      "proxyUrl": "https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/assesmentDEV"
+    }
   ],
   "integrations": {
     "capacitor": {}
