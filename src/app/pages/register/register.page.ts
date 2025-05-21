@@ -23,7 +23,7 @@ export class RegisterPage implements OnInit {
   ciudadOtra: string = '';
   ciudadFinal: string = '';
   mnjWhatsapp: string = '';
-  linkWhatsapp: string = "https://wa.me/573104907577?text=";
+  linkWhatsapp: string = "https://wa.me/573001234567?text=";
   numeroDestino: number = 3001234567;
 
   @ViewChild('otraCiudadInput') otraCiudadInput!: ElementRef;
