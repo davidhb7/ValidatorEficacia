@@ -2,17 +2,22 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserI } from '../models/user';
-import { ApiResponse } from '../models/api-response';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserApiService {
 
+  apiServ:string=environment.apiEnviroment;
+  directApi=""
+
 
   constructor(
     private httpC:HttpClient
   ) { }
+
+  
 
   getUserByCedula(cc:string): Observable<any> {
     const headers = new HttpHeaders({
@@ -21,8 +26,9 @@ export class UserApiService {
     const params = new HttpParams()
       // .set('_id', '682bbd13430509c3db24287b')
       .set('cedula', cc);
-    const url = '/api';
-    return this.httpC.get(url, { headers,params });
+    const directapi="https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/assesmentDEV"
+    console.log(directapi,headers,params)
+    return this.httpC.get(directapi, { headers,params });
   }
 
 
@@ -30,8 +36,9 @@ export class UserApiService {
     const headers = new HttpHeaders({
       'Authorization': `Token 790cfdfb568c8ca697c72f52d8fab5af63ede025`,
     });
-    const url = '/api';
-    return this.httpC.post(url,usr,{headers})
+    const directapi="https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/assesmentDEV"
+    console.log(directapi,headers)
+    return this.httpC.post(directapi,usr,{headers})
   }
 
 
