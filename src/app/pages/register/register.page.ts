@@ -25,6 +25,7 @@ export class RegisterPage implements OnInit {
   mnjWhatsapp: string = '';
   linkWhatsapp: string = "https://wa.me/573001234567?text=";
   numeroDestino: number = 3001234567;
+  linkFotoPresente:string= "";
 
   @ViewChild('otraCiudadInput') otraCiudadInput!: ElementRef;
   consultaRealizada!: boolean;
@@ -117,7 +118,7 @@ export class RegisterPage implements OnInit {
     Hola, mis datos son:
     Cedula:${this.usuario.cedula}
     Telefono:${this.usuario.telefono}
-    Foto:${this.usuario.foto}
+    Foto:${this.linkFotoPresente}
     `;
     let url = this.linkWhatsapp + this.mnjWhatsapp
     window.open(url, '_blank');
@@ -147,6 +148,7 @@ export class RegisterPage implements OnInit {
 
       this.usuario.foto = res;
       console.log("link:", res);
+      this.linkFotoPresente=res
     } catch (error) {
       console.error('Error al subir foto:', error);
     } finally {
