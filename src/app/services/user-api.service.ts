@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserI } from '../models/user';
 import { ApiResponse } from '../models/api-response';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserApiService {
+
+  apiDirecta:string="https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/assesmentDEV"
+  apiEnv=environment.apiEficacia
 
 
   constructor(
@@ -21,8 +25,8 @@ export class UserApiService {
     const params = new HttpParams()
       // .set('_id', '682bbd13430509c3db24287b')
       .set('cedula', cc);
-    const url = '/api';
-    return this.httpC.get(url, { headers,params });
+      const apidir=environment.apiEficacia
+    return this.httpC.get(apidir, { headers,params });
   }
 
 
@@ -30,8 +34,8 @@ export class UserApiService {
     const headers = new HttpHeaders({
       'Authorization': `Token 790cfdfb568c8ca697c72f52d8fab5af63ede025`,
     });
-    const url = '/api';
-    return this.httpC.post(url,usr,{headers})
+    const apidir=environment.apiEficacia
+    return this.httpC.post(apidir,usr,{headers})
   }
 
 

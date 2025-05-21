@@ -27,6 +27,8 @@ export class RegisterPage implements OnInit {
   numeroDestino: number = 3001234567;
 
   @ViewChild('otraCiudadInput') otraCiudadInput!: ElementRef;
+  consultaRealizada!: boolean;
+  errorMnjs: string="";
   constructor(
     private formBuilderRegistro: FormBuilder,
     private router: Router,
@@ -103,6 +105,8 @@ export class RegisterPage implements OnInit {
         this.enviarMensaje();
       },
       error: (err) => {
+        this.consultaRealizada = true;
+        this.errorMnjs = 'Error al obtener datos: ' + err.message;
         console.error('Error al registrar usuario:', err);
       }
     });

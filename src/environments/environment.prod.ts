@@ -7,5 +7,6 @@ export const environment = {
     storageBucket: "ionic-gest-rep-all.appspot.com",
     messagingSenderId: "1053661105256",
     appId: "1:1053661105256:web:dfdbcad7813af99031ffdd"
-  }
+  },
+  apiEficacia: "https://botai.smartdataautomation.com/api_backend_ai/dinamic-db/report/119/assesmentDEV"
 };
