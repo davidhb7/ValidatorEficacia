@@ -101,7 +101,7 @@ export class RegisterPage implements OnInit {
     this.userServ.registrarUsuario(this.usuario).subscribe({
       next: (respuesta) => {
         console.log('Usuario registrado exitosamente:', respuesta);
-        alert('Usuario registrado. Serás redirigido al registro.');
+        alert('Usuario registrado. Serás redirigido al login.');
         this.router.navigate(['/login']);
         this.enviarMensaje();
       },
